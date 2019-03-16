@@ -1,0 +1,78 @@
+<html> 
+<head> 
+<!-- <script> 
+function myfunction()                                    
+{ 
+    var what1 =  document.forms["SensorForm"]["Sensor"];  
+    var what2 =  document.forms["SensorForm"]["Task"];  
+      
+    if (what1.selectedIndex < 1)                  
+    { 
+        alert("Please enter your Sensor."); 
+        what1.focus(); 
+        return false; 
+    }
+    if (what2.selectedIndex < 1)                  
+    { 
+        alert("Please enter your Task."); 
+        what2.focus(); 
+        return false; 
+    } 
+   
+    return true; 
+}</script> 
+ -->  
+<style> 
+/*myfunction {                                         
+    margin-left: 70px; 
+    font-weight: bold ; 
+    float: left; 
+    clear: left; 
+    width: 100px; 
+    text-align: left; 
+    margin-right: 10px; 
+    font-family:sans-serif,bold, Arial, Helvetica; 
+    font-size:14px; 
+} 
+*/   
+div {  
+    box-sizing: border-box; 
+    width: 100%; 
+    border: 100px solid black; 
+    float: left; 
+    align-content: center; 
+    align-items: center; 
+} 
+   
+form {                                         
+    margin: 0 auto; 
+    width: 600px; 
+}</style></head> 
+   
+<body> 
+<h1 style="text-align: center"> SENSOR DATA </h1>           
+<!-- <form name="SensorForm" action="/submit.php" onsubmit="return myfunction()" method="post">  
+ -->      
+    <!-- <p>Sensor : <input type="text" size=65 name="Name"> </p><br>         -->
+           
+    <p>SELECT YOUR SENSOR    
+        <select type="text" value="" name="Sensor"> 
+            <option>Select Option</option> 
+            <option>LED</option> 
+            <option>SENSOR2</option> 
+            <option>SENSOR3</option> 
+        </select></p><br><br>
+
+    <p>SEND SIGNAL/ RECIEVE SIGNAL     
+        <select type="text" value="" name="Task"> 
+            <option>Select Option</option> 
+            <option>ON</option> 
+            <option>OFF</option> 
+            <option>RECIEVE DATA</option> 
+        </select></p><br><br> 
+    <p><input type="submit" value="Submit" name="Submit">      
+        <input type="reset" value="Reset" name="Reset">   
+    </p>          
+<!-- </form>  -->
+</body> 
+</html> 

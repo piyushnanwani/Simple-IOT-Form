@@ -1,0 +1,10 @@
+<html> 
+<head>IOT Form</head>
+{% block body %}
+<div class="container">
+    <h1>Sensor Data</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form as_p}}
+
+</html> 
