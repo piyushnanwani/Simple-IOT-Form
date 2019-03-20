@@ -18,7 +18,7 @@ class HomeView(TemplateView):
 
 	# @csrf_protect
 	def post(self,request):
-		form = HomeForm(request.POST) 	
+		form = HomeForm(request.POST)
 		print(form)
 		if form.is_valid():
 			form.save()
@@ -28,7 +28,7 @@ class HomeView(TemplateView):
 			text = form.cleaned_data['state']
 			# form = HomeForm()
 			# return redirect['app1:app1']
-			
+
 		args = {'form':form, 'text':text}
 		return render(request, self.template_name,args)
 
@@ -53,7 +53,7 @@ def myviewfunction2(request):
 # Working!!!!!!!!!!!!!!-------------------------->
 # But still returning <Response 200>
 def myviewfunction3(request):
-	
+
 
 	# final_state = '';
 	# for cur_state in Sensor1.objects.raw('SELECT * FROM app1_sensor1'):
@@ -64,7 +64,7 @@ def myviewfunction3(request):
 	# final_state = my_custom_sql()
 	return HttpResponse(final_state)
 
-# Returning <Response 200>	
+# Returning <Response 200>
 def myviewfunction8(request):
 	return HttpResponse("ON", content_type="text/plain charset=utf-8")
 
@@ -85,7 +85,7 @@ def myviewfunction6(request):
 	response['Content-Length'] = len(content)
 
 	return response
-	
+
 def myviewfunction7(request):
 	response = "ON "
 	return render_to_response(request,response)
@@ -103,7 +103,7 @@ def myviewfunction7(request):
 def myviewfunction(request):
 	total_len = len(Sensor1.objects.all())
 	final_state = Sensor1.objects.all()[total_len-1].state
-	
+
 	return HttpResponse(final_state ,content_type="text/plain charset=utf-8" )
 
 def home2(request):
@@ -116,29 +116,29 @@ def home2(request):
     })
 
 import re
-# from .models import Sensor1Client  # imported above 
+# from .models import Sensor1Client  # imported above
 def yourviewfunction(HttpRequest):
-	string = "motherFucka"
-	mylist =''
-	if(HttpRequest.method == 'POST'):
-		# string = HttpRequest.body  Error since storing bytes in a string, you first need to decode
-		string = HttpRequest.body.decode("utf-8")
+    string1 = " "
+    mylist =''
+    if(HttpRequest.method == 'POST'):
+    # string = HttpRequest.body  Error since storing bytes in a string, you first need to decode
+        string = HttpRequest.body.decode("utf-8")
+        string1 = str(string)
+        # mylist = re.split('; |,|\*|\n', string)
+        mylist = re.split(',', string) #removing commas from CSV format & converting it into a list
+    # for i in mylist:
+    	# print(i)
+        sensor1client_instance = Sensor1Client.objects.create(sensor_name=mylist[0],state=mylist[1], time=mylist[2])
 
-		# mylist = re.split('; |,|\*|\n', string)
-		mylist = re.split(',', string) #removing commas from CSV format & converting it into a list
-		# for i in mylist:
-			# print(i)
-		sensor1client_instance = Sensor1Client.objects.create(sensor_name=mylist[0],state=mylist[1], time=mylist[2])
-
-
-	return HttpResponse("Sucessfully following data to the table : " + string)
+# string1=string1+string
+    return HttpResponse("Sucessfully added following data to the table : " + string1)
 
 #from django.db import connection
 def yourviewfunction_table2(request):
-	cursor = connection.cursor()
+# 	cursor = connection.cursor()
 	# result = cursor.execute('''SELECT count(*) FROM app1_sensor1client''')
-	total_len = len(Sensor1Client.objects.all())
-	final_state = Sensor1Client.objects.all()
+# 	total_len = len(Sensor1Client.objects.all())
+# 	final_state = Sensor1Client.objects.all()
 	result_response=""
 	for item in Sensor1Client.objects.all():
 		result_response = result_response + item.sensor_name + " "  + item.state + " " + item.time + "\n"

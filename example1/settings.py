@@ -29,11 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = [
     r'[\w\.-]+.ngrok.io',
     'aade1321.ngrok.io',
-    
-    'localhost:8000',	
+
+    'localhost:8000',
     'localhost:8000/admin',
     'localhost:8000/home',
     'localhost:8000/myview',
+    'piyushnanwani.pythonanywhere.com',
     'localhost',
     '55e71afa.ngrok.io',
     # '19b08704.ngrok.io',
@@ -88,17 +89,21 @@ WSGI_APPLICATION = 'example1.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
-        },
+     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'OPTIONS': {
+    #         'read_default_file': '/etc/mysql/my.cnf',
+    #     },
         # # 'NAME': os.path.join(BASE_DIR, 'db.mysql'),
         # 'DATABASE': 'aet',
         # 'USER': 'root',
         # 'PASSWORD':'password',
 
-    }
+    # }
 }
 
 
@@ -126,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

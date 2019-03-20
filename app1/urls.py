@@ -7,7 +7,7 @@ urlpatterns = [
 	path('myview', views.myviewfunction, name='myview'),
 	path('yourview', views.yourviewfunction, name='yourview'),
 	path('yourviewdata', views.yourviewfunction_table2, name='yourviewdata'),
-	
+
 
 	# path('first', views.first, name='first'),
 	# path('sensor_form', views.sensor_form, name='sensor_form'),
